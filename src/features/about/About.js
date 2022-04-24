@@ -84,6 +84,7 @@ export function About({ themeType }) {
         }
 
     }));
+
     const classes = useStyles();
     const ref = useRef(null);
     const [xys, set] = useState([0, 0, 1]);
@@ -96,25 +97,7 @@ export function About({ themeType }) {
         velocity: 0,
         easing: (t) => t,
     };
-    const [elementsRenderDelay, setElementsRenderDelay] = useState([true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true,])
 
-
-    // useEffect(() => {
-    //     const asyncWrapper = async () => {
-    //         setTimeout(() => {
-    //             for (let i = 0; i <= elementsRenderDelay.length; i++) {
-    //                 if (elementsRenderDelay[i] === false) {
-    //                     let newElementsRenderDelay = elementsRenderDelay;
-    //                     newElementsRenderDelay[i] = true;
-    //                     setElementsRenderDelay(newElementsRenderDelay);
-    //                     console.log('returned')
-    //                     return 0;
-    //                 }
-    //             }
-    //         }, 300)
-    //         asyncWrapper();
-    //     }
-    // }, [])
 
     const content = [{
         title: 'LITTLE BIT ABOUT ME 👨',
@@ -140,7 +123,7 @@ export function About({ themeType }) {
     return (
         <animated.div style={props} >
             <div className={classes.wrapper} >
-                <Slide direction="right" in={elementsRenderDelay[0]} timeout={{ appear: 100, enter: 500 }}>
+                <Slide direction="right" in={true} timeout={{ appear: 100, enter: 500 }}>
                     <div className={classes.titleWrapper}>
                         {content[0].title}
                     </div >
@@ -154,12 +137,12 @@ export function About({ themeType }) {
                             const rect = ref.current.getBoundingClientRect();
                             set(calc(e.clientX, e.clientY, rect));
                         }}>
-                        <Slide direction="left" in={elementsRenderDelay[1]} timeout={{ appear: 500, enter: 1000 }} >
+                        <Slide direction="left" in={true} timeout={{ appear: 500, enter: 1000 }} >
                             <div className={classes.textWrapper}>
                                 {content[0].p1}
                             </div >
                         </Slide>
-                        <Slide direction="left" in={elementsRenderDelay[2]} timeout={{ appear: 800, enter: 2000 }}>
+                        <Slide direction="left" in={true} timeout={{ appear: 800, enter: 2000 }}>
                             <div className={classes.textWrapper}>
                                 {content[0].p2}
                             </div >
@@ -184,7 +167,7 @@ export function About({ themeType }) {
                         <TransitionGroup className={classes.allSkillsWrapper}>
                             {content[1].p.map((item, i) => {
                                 return (
-                                    <Slide direction="up" in={elementsRenderDelay[i + 1]} key={'skillWrapper_' + i} timeout={{ appear: 1000, enter: 2000 }} mountOnEnter unmountOnExit>
+                                    <Slide direction="up" in={true} key={'skillWrapper_' + i} timeout={{ appear: 1000, enter: 2000 }} mountOnEnter unmountOnExit>
                                         <Badge
                                             themeType={themeType}
                                             imgComponent={item}
@@ -195,56 +178,7 @@ export function About({ themeType }) {
                             })}
                         </TransitionGroup>
 
-                        {/* <Slide direction="left" in={delayedItems[3]} container={containerRef.current} key={'react'}>
-                        <div>
-                            <Badge
 
-                                themeType={themeType}
-                                imgComponent={content[1].p2}
-                                xys={props.xys}
-                            />
-                        </div>
-                    </Slide>
-                    <Slide direction="left" in={delayedItems[4]} container={containerRef.current} key={'css'}>
-                        <div>
-                            <Badge
-
-                                themeType={themeType}
-                                imgComponent={content[1].p3}
-                                xys={props.xys}
-                            />
-                        </div>
-                    </Slide>
-                    <Slide direction="left" in={delayedItems[5]} container={containerRef.current} key={'php'}>
-                        <div>
-                            <Badge
-
-                                themeType={themeType}
-                                imgComponent={content[1].p4}
-                                xys={props.xys}
-                            />
-                        </div>
-                    </Slide>
-                    <Slide direction="left" in={delayedItems[6]} container={containerRef.current} key={'node'}>
-                        <div>
-                            <Badge
-
-                                themeType={themeType}
-                                imgComponent={content[1].p5}
-                                xys={props.xys}
-                            />
-                        </div>
-                    </Slide>
-                    <Slide direction="left" in={delayedItems[7]} container={containerRef.current} key={'posgres'}>
-                        <div>
-                            <Badge
-
-                                themeType={themeType}
-                                imgComponent={content[1].p6}
-                                xys={props.xys}
-                            />
-                        </div>
-                    </Slide> */}
                     </animated.div>
                 </div >
 
